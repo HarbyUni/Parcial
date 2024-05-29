@@ -27,12 +27,12 @@ function Productos() {
 
 
     useEffect(() => {
-        fetch(`http://localhost:9000/v1/restaurante/comidas`)
+        fetch(`https://apirest-mu.vercel.app/v1/restaurante/comidas`)
             .then(response => response.json())
             .then(data => setComidas(data)) // Asume que 'data' es un array de comidas
             .catch(error => console.error('Error:', error));
 
-        fetch(`http://localhost:9000/v1/restaurante/bebidas`)
+        fetch(`https://apirest-mu.vercel.app/v1/restaurante/bebidas`)
             .then(response => response.json())
             .then(data => setBebidas(data)) // Asume que 'data' es un array de comidas
             .catch(error => console.error('Error:', error));
@@ -42,7 +42,7 @@ function Productos() {
     const handleAddSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:9000/v1/restaurante/comidas`, {
+            const response = await fetch(`https://apirest-mu.vercel.app/v1/restaurante/comidas`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ function Productos() {
     const handleEditSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:9000/v1/restaurante/comidas/${itemToEdit.id}`, {
+            const response = await fetch(`https://apirest-mu.vercel.app/v1/restaurante/comidas/${itemToEdit.id}`, {
                 method: 'PUT', // o 'PUT', dependiendo de cómo tu API gestione las actualizaciones
                 headers: {
                     'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ function Productos() {
         const updatedEstado = item.estado === 'Activo' ? 'Inactivo' : 'Activo';
 
         try {
-            const response = await fetch(`http://localhost:9000/v1/restaurante/comidas/${id}`, {
+            const response = await fetch(`https://apirest-mu.vercel.app/v1/restaurante/comidas/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

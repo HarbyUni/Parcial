@@ -12,7 +12,7 @@ function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        fetch(`http://localhost:9000/v1/restaurante/Login`, {
+        fetch(`https://apirest-mu.vercel.app/v1/restaurante/Login`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ "username": username, "password": password })

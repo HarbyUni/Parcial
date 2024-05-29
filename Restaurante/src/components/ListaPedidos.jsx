@@ -7,7 +7,7 @@ function ListaPedidos() {
 
     const obtenerPedidos = async () => {
         try {
-            const respuesta = await fetch('http://localhost:9000/v1/restaurante/pedidos');
+            const respuesta = await fetch('https://apirest-mu.vercel.app/v1/restaurante/pedidos');
             const response = await respuesta.json();
             const enPreparacion = response.filter(pedido => pedido.estado === "En preparación");
             const listos = response.filter(pedido => pedido.estado === "Listo");
@@ -25,7 +25,7 @@ function ListaPedidos() {
 
     const cambiarEstadoPedido = async (idPedido, nuevoEstado) => {
         try {
-            await fetch(`http://localhost:9000/v1/restaurante/pedidos/${idPedido}`, {
+            await fetch(`https://apirest-mu.vercel.app/v1/restaurante/pedidos/${idPedido}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

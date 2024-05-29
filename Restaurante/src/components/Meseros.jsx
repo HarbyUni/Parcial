@@ -26,13 +26,13 @@ function Meseros({ user }) {
 
     useEffect(() => {
         // Petición para obtener las comidas
-        fetch(`http://localhost:9000/v1/restaurante/comidas`)
+        fetch(`https://apirest-mu.vercel.app/v1/restaurante/comidas`)
             .then(response => response.json())
             .then(data => setComidas(data)) // Actualizar el estado con los datos obtenidos
             .catch(error => console.error('Error:', error));
 
         // Asumiendo que tienes otra URL para bebidas, repite el proceso para obtener bebidas
-        fetch(`http://localhost:9000/v1/restaurante/bebidas`)
+        fetch(`https://apirest-mu.vercel.app/v1/restaurante/bebidas`)
             .then(response => response.json())
             .then(data => setBebidas(data)) // Actualizar el estado con los datos obtenidos
             .catch(error => console.error('Error:', error));
@@ -78,7 +78,7 @@ function Meseros({ user }) {
 
     // Para enviar el pedido
     const enviarPedido = () => {
-        fetch('http://localhost:9000/v1/restaurante/pedidos', {
+        fetch('https://apirest-mu.vercel.app/v1/restaurante/pedidos', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

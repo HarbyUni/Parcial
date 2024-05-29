@@ -30,7 +30,7 @@ function Usuarios() {
 
     const obtenerUsuarios = async () => {
         try {
-            const respuesta = await fetch('http://localhost:9000/v1/restaurante/usuarios');
+            const respuesta = await fetch('https://apirest-mu.vercel.app/v1/restaurante/usuarios');
             const data = await respuesta.json();
             setUsuarios(data); // Asume que 'data' es un array de usuarios
         } catch (error) {
@@ -51,7 +51,7 @@ function Usuarios() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const url = 'http://localhost:9000/v1/restaurante/usuarios';
+        const url = 'https://apirest-mu.vercel.app/v1/restaurante/usuarios';
         const method = editando ? 'PUT' : 'POST'; // 'PUT' para actualizar, 'POST' para añadir
         const usuarioId = editando ? `/${usuarioActivo.id}` : ''; // Añade el ID del usuario en la URL si estás editando
 
@@ -99,7 +99,7 @@ function Usuarios() {
         const nuevoEstado = usuario.Estado === 'Activo' ? 'Inactivo' : 'Activo';
 
         try {
-            const response = await fetch(`http://localhost:9000/v1/restaurante/usuarios/${id}`, {
+            const response = await fetch(`https://apirest-mu.vercel.app/v1/restaurante/usuarios/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
