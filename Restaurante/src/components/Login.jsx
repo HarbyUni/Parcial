@@ -17,6 +17,7 @@ function Login() {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ "username": username, "password": password })
         })
+        
             .then(response => response.json()) // Convertir la respuesta a JSON
             .then(data => goTo(`/${data.Rol}`)) // Manejar la respuesta de la petición
             .catch(error => console.error('Error:', error)); // Manejar un posible error
