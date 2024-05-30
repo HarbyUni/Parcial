@@ -3,8 +3,9 @@ const Usuario = require('../../models/Usuarios'); // Asegúrate de que la ruta a
 // Iniciar sesión de un usuario
 const loginUser = async (req, res) => {
     try {
-        const { Usuario, Password } = req.body;
-        const user = await Usuario.findOne({ Usuario: Usuario, Password: Password });
+        const { username, password } = req.body;
+
+        const user = await Usuario.findOne({ Usuario: username, Password: password });
         if (user) {
             res.status(200).json({ message: 'Usuario autenticado con éxito', user: user });
         } else {
